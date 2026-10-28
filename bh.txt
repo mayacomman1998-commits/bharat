@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>मिंकू चाय स्टॉल - ESIC कॉलोनी, जयपुर</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            padding-bottom: 70px;
+        }
+        header {
+            background: #d35400;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        header h1 {
+            font-size: 22px;
+        }
+        header p {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+        .delivery-badge {
+            background: #e67e22;
+            color: white;
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+        .nav-tabs {
+            display: flex;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            color: #666;
+        }
+        .nav-tab.active {
+            color: #d35400;
+            border-bottom: 3px solid #d35400;
+            background: #fff5ee;
+        }
+        .container {
+            padding: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .card h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-size: 16px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f1f1;
+        }
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        .item-info h4 {
+            font-size: 15px;
+            color: #333;
+        }
+        .item-info p {
+            font-size: 13px;
+            color: #e67e22;
+            font-weight: bold;
+        }
+        .item-action {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .item-action input {
+            width: 50px;
+            padding: 5px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .btn {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 13px;
+        }
+        .btn-danger {
+            background: #c0392b;
+        }
+        .btn-primary {
+            background: #2980b9;
+        }
+        .btn-block {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .upi-box {
+            background: #fdfefe;
+            border: 2px dashed #27ae60;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .upi-box p {
+            font-size: 13px;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .summary-box {
+            display: flex;
+            justify-content: space-between;
+            background: #e8f8f5;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #27ae60;
+        }
+        .summary-item h4 {
+            font-size: 12px;
+            color: #555;
+        }
+        .summary-item p {
+            font-size: 16px;
+            font-weight: bold;
+            color: #27ae60;
+        }
+        .list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fafafa;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            border-left: 3px solid #d35400;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>☕ मिंकू चाय स्टॉल</h1>
+        <p>ESIC कॉलोनी, जयपुर</p>
+        <div class="delivery-badge">⚡ फ़्री होम डिलीवरी (सिर्फ 1.5 किमी के दायरे में) | नए ग्राहकों के लिए एडवांस पेमेंट अनिवार्य</div>
+    </header>
+
+    <div class="nav-tabs">
+        <div class="nav-tab active" onclick="switchTab('orderTab')">ऑनलाइन ऑर्डर</div>
+        <div class="nav-tab" onclick="switchTab('udhaarTab')">उधार खाता</div>
+    </div>
+
+    <div class="container">
+        <!-- ORDER TAB -->
+        <div id="orderTab" class="section active">
+            <div class="card">
+                <h3>चाय मेनू (Chai Menu)</h3>
+                
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h4>छोटी चाय (Choti Chai)</h4>
+                        <p>₹7</p>
+                    </div>
+                    <div class="item-action">
+                        <input type="number" id="qty_choti" min="0" value="0">
+                        <button class="btn" onclick="addToOrder('छोटी चाय', 7, 'qty_choti')">जोड़ें</button>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h4>अदरक चाय (Adrak Chai)</h4>
+                        <p>₹10</p>
+                    </div>
+                    <div class="item-action">
+                        <input type="number" id="qty_adrak" min="0" value="0">
+                        <button class="btn" onclick="addToOrder('अदरक चाय', 10, 'qty_adrak')">जोड़ें</button>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h4>कुल्हड़ मसाला चाय (Kulhad Chai)</h4>
+                        <p>₹15</p>
+                    </div>
+                    <div class="item-action">
+                        <input type="number" id="qty_kulhad" min="0" value="0">
+                        <button class="btn" onclick="addToOrder('कुल्हड़ मसाला चाय', 15, 'qty_kulhad')">जोड़ें</button>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h4>इलायची चाय (Elaichi Chai)</h4>
+                        <p>₹12</p>
+                    </div>
+                    <div class="item-action">
+                        <input type="number" id="qty_elaichi" min="0" value="0">
+                        <button class="btn" onclick="addToOrder('इलायची चाय', 12, 'qty_elaichi')">जोड़ें</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>आपकी कार्ट (Cart)</h3>
+                <div id="cartItems">
+                    <p style="font-size: 13px; color: #888; text-align: center;">कार्ट खाली है</p>
+                </div>
+                <hr style="margin: 10px 0; border:0; border-top:1px solid #eee;">
+                <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 10px;">
+                    <span>कुल योग:</span>
+                    <span id="cartTotal">₹0</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>ग्राहक का नाम:</label>
+                    <input type="text" id="customerName" class="form-control" placeholder="अपना पूरा नाम लिखें">
+                </div>
+                <div class="form-group">
+                    <label>मोबाइल नंबर:</label>
+                    <input type="tel" id="customerPhone" class="form-control" placeholder="अपना फोन नंबर लिखें">
+                </div>
+                <div class="form-group">
+                    <label>ESIC कॉलोनी में आपका exact पता:</label>
+                    <input type="text" id="customerAddress" class="form-control" placeholder="ब्लॉक / मकान नंबर / दुकान">
+                </div>
+                
+                <div class="form-group">
+                    <label>दूरी की पुष्टि (Distance Check):</label>
+                    <select id="distanceRange" class="form-control">
+                        <option value="inside">दुकान से 1.5 किलोमीटर के अंदर</option>
+                        <option value="outside">1.5 किलोमीटर से बाहर (डिलीवरी उपलब्ध नहीं)</option>
+                    </select>
+                </div>
+
+                <!-- UPI / Advance Payment Section for New Members -->
+                <div class="upi-box">
+                    <p>⚡ नए ग्राहकों के लिए नियम:</p>
+                    <p style="font-size: 12px; color: #555; font-weight: normal; margin-top: 3px;">कृपया नीचे दिए गए UPI ID पर एडवांस पेमेंट करके उसका स्क्रीनशॉट या ट्रांजैक्शन नंबर नीचे दर्ज करें:</p>
+                    <p style="font-size: 14px; margin-top: 5px; color: #d35400;">UPI ID: <b>mintu.chai@paytm</b> (या आपके दुकान का नंबर)</p>
+                </div>
+
+                <div class="form-group">
+                    <label>पेमेंट ट्रांजैक्शन आईडी / UTR नंबर (अनिवार्य):</label>
+                    <input type="text" id="paymentRef" class="form-control" placeholder="पेमेंट करने के बाद नंबर यहाँ लिखें">
+                </div>
+                
+                <button class="btn btn-primary btn-block" onclick="placeOrder()">व्हाट्सएप पर ऑर्डर भेजें 🚀</button>
+            </div>
+        </div>
+
+        <!-- UDHAAR TAB -->
+        <div id="udhaarTab" class="section">
+            <div class="summary-box">
+                <div class="summary-item">
+                    <h4>कुल बाक़ी उधार</h4>
+                    <p id="totalUdhaarAmount">₹0</p>
+                </div>
+                <div class="summary-item" style="border-left: 3px solid #2980b9; padding-left: 10px;">
+                    <h4>कुल ग्राहक</h4>
+                    <p id="totalCustomers" style="color: #2980b9;">0</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>नया उधार ग्राहक जोड़ें</h3>
+                <div class="form-group">
+                    <label>ग्राहक का नाम:</label>
+                    <input type="text" id="udhaarName" class="form-control" placeholder="जैसे: राहुल भैया">
+                </div>
+                <div class="form-group">
+                    <label>मोबाइल नंबर:</label>
+                    <input type="tel" id="udhaarPhone" class="form-control" placeholder="फोन नंबर">
+                </div>
+                <div class="form-group">
+                    <label>उधार राशि (₹):</label>
+                    <input type="number" id="udhaarAmount" class="form-control" placeholder="रुपये लिखें">
+                </div>
+                <button class="btn btn-block" onclick="addUdhaarEntry()">उधार सेव करें</button>
+            </div>
+
+            <div class="card">
+                <h3>उधार खातों की लिस्ट</h3>
+                <div id="udhaarListContainer">
+                    <p style="font-size: 13px; color: #888; text-align: center;">कोई उधार खाता नहीं है</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        let cart = [];
+
+        function addToOrder(itemName, itemPrice, qtyId) {
+            let qty = parseInt(document.getElementById(qtyId).value);
+            if(isNaN(qty) || qty <= 0) {
+                alert('कृपया सही मात्रा (Quantity) भरें!');
+                return;
+            }
+
+            let existingItem = cart.find(item => item.name === itemName);
+            if(existingItem) {
+                existingItem.qty += qty;
+            } else {
+                cart.push({ name: itemName, price: itemPrice, qty: qty });
+            }
+
+            document.getElementById(qtyId).value = 0;
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            let container = document.getElementById('cartItems');
+            let totalElem = document.getElementById('cartTotal');
+            
+            if(cart.length === 0) {
+                container.innerHTML = '<p style="font-size: 13px; color: #888; text-align: center;">कार्ट खाली है</p>';
+                totalElem.innerText = '₹0';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+            cart.forEach((item, index) => {
+                let itemTotal = item.price * item.qty;
+                total += itemTotal;
+                html += `
+                    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px; margin-bottom: 5px;">
+                        <span>${item.name} (x${item.qty})</span>
+                        <span>₹${itemTotal} <button onclick="removeFromCart(${index})" style="background:none; border:none; color:red; cursor:pointer; margin-left:8px;">❌</button></span>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+            totalElem.innerText = '₹' + total;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function placeOrder() {
+            if(cart.length === 0) {
+                alert('आपकी कार्ट खाली है!');
+                return;
+            }
+
+            let distanceCheck = document.getElementById('distanceRange').value;
+            if(distanceCheck === 'outside') {
+                alert('माफ़ कीजिए! हमारी होम डिलीवरी केवल 1.5 किलोमीटर के दायरे (ESIC कॉलोनी के आसपास) में ही उपलब्ध है।');
+                return;
+            }
+
+            let name = document.getElementById('customerName').value.trim();
+            let phone = document.getElementById('customerPhone').value.trim();
+            let address = document.getElementById('customerAddress').value.trim();
+            let paymentRef = document.getElementById('paymentRef').value.trim();
+
+            if(!name || !phone || !address) {
+                alert('कृपया अपना नाम, फोन नंबर और सही पता भरें!');
+                return;
+            }
+
+            if(!paymentRef) {
+                alert('नए ग्राहकों के लिए एडवांस पेमेंट करना अनिवार्य है! कृपया UPI पेमेंट करके UTR/Transaction ID दर्ज करें।');
+                return;
+            }
+
+            let orderText = `*☕ नया ऑनलाइन ऑर्डर (मिंकू चाय स्टॉल)*\n*📍 लोकेशन:* ESIC कॉलोनी, जयपुर\n\n*ग्राहक नाम:* ${name}\n*मोबाइल:* ${phone}\n*पता:* ${address}\n*दायरा:* 1.5 किमी के अंदर\n*पेमेंट UTR:* ${paymentRef} (एडवांस प्राप्त)\n\n*ऑर्डर विवरण:*\n`;
+            let total = 0;
+            cart.forEach(item => {
+                let itemTotal = item.price * item.qty;
+                total += itemTotal;
+                orderText += `- ${item.name} x ${item.qty} = ₹${itemTotal}\n`;
+            });
+            orderText += `\n*कुल देय राशि:* ₹${total} (Paid Online)`;
+
+            let whatsappUrl = `https://wa.me/?text=${encodeURIComponent(orderText)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        let udhaarList = JSON.parse(localStorage.getItem('mintu_udhaar')) || [];
+
+        function saveUdhaarToStorage() {
+            localStorage.setItem('mintu_udhaar', JSON.stringify(udhaarList));
+            renderUdhaarList();
+        }
+
+        function addUdhaarEntry() {
+            let name = document.getElementById('udhaarName').value.trim();
+            let phone = document.getElementById('udhaarPhone').value.trim();
+            let amount = parseFloat(document.getElementById('udhaarAmount').value);
+
+            if(!name || isNaN(amount) || amount <= 0) {
+                alert('कृपया सही नाम और उधार राशि दर्ज करें!');
+                return;
+            }
+
+            udhaarList.push({ id: Date.now(), name, phone, amount });
+            document.getElementById('udhaarName').value = '';
+            document.getElementById('udhaarPhone').value = '';
+            document.getElementById('udhaarAmount').value = '';
+
+            saveUdhaarToStorage();
+            alert('उधार सफलतापूक दर्ज हो गया!');
+        }
+
+        function deleteUdhaar(id) {
+            if(confirm('क्या यह उधार चुका दिया गया है / खाता बंद करना है?')) {
+                udhaarList = udhaarList.filter(item => item.id !== id);
+                saveUdhaarToStorage();
+            }
+        }
+
+        function renderUdhaarList() {
+            let container = document.getElementById('udhaarListContainer');
+            let totalAmountElem = document.getElementById('totalUdhaarAmount');
+            let totalCustElem = document.getElementById('totalCustomers');
+
+            if(udhaarList.length === 0) {
+                container.innerHTML = '<p style="font-size: 13px; color: #888; text-align: center;">कोई उधार खाता नहीं है</p>';
+                totalAmountElem.innerText = '₹0';
+                totalCustElem.innerText = '0';
+                return;
+            }
+
+            let html = '';
+            let totalUdhaar = 0;
+            udhaarList.forEach(entry => {
+                totalUdhaar += entry.amount;
+                html += `
+                    <div class="list-item">
+                        <div>
+                            <h4 style="font-size: 14px;">${entry.name} ${entry.phone ? '('+entry.phone+')' : ''}</h4>
+                            <p style="color: #c0392b; font-weight: bold; font-size: 13px; margin-top: 2px;">उधार: ₹${entry.amount}</p>
+                        </div>
+                        <button class="btn btn-danger" style="padding: 5px 8px; font-size: 11px;" onclick="deleteUdhaar(${entry.id})">चुका दिया</button>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            totalAmountElem.innerText = '₹' + totalUdhaar;
+            totalCustElem.innerText = udhaarList.length;
+        }
+
+        renderUdhaarList();
+    </script>
+</body>
+</html>
